@@ -1,4 +1,4 @@
-import LogoDark from "../../assets/images/logos/xtremelogo.svg";
+import LogoDark from "../../assets/images/logos/henny-penny-2-logo.png";
 import Image from "next/image";
 import Link from "next/link";
 

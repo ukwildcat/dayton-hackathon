@@ -53,17 +53,17 @@ const Header = ({ showMobmenu }) => {
 
       <Collapse navbar isOpen={isOpen}>
         <Nav className="me-auto" navbar>
-          <NavItem>
+          {/* <NavItem>
             <Link href="/">
               <a className="nav-link">Starter</a>
             </Link>
-          </NavItem>
-          <NavItem>
+          </NavItem> */}
+          {/* <NavItem>
             <Link href="/about">
               <a className="nav-link">About</a>
             </Link>
-          </NavItem>
-          <UncontrolledDropdown inNavbar nav>
+          </NavItem> */}
+          {/* <UncontrolledDropdown inNavbar nav>
             <DropdownToggle caret nav>
               DD Menu
             </DropdownToggle>
@@ -73,8 +73,8 @@ const Header = ({ showMobmenu }) => {
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
-          </UncontrolledDropdown>
-        </Nav>
+          </UncontrolledDropdown>*/}
+        </Nav> 
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="primary">
             <div style={{ lineHeight: "0px" }}>

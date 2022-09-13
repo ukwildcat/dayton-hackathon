@@ -14,36 +14,36 @@ const navigation = [
     href: "/ui/alerts",
     icon: "bi bi-bell",
   },
-  {
-    title: "Badges",
-    href: "/ui/badges",
-    icon: "bi bi-patch-check",
-  },
-  {
-    title: "Buttons",
-    href: "/ui/buttons",
-    icon: "bi bi-hdd-stack",
-  },
-  {
-    title: "Cards",
-    href: "/ui/cards",
-    icon: "bi bi-card-text",
-  },
-  {
-    title: "Grid",
-    href: "/ui/grid",
-    icon: "bi bi-columns",
-  },
+  // {
+  //   title: "Badges",
+  //   href: "/ui/badges",
+  //   icon: "bi bi-patch-check",
+  // },
+  // {
+  //   title: "Buttons",
+  //   href: "/ui/buttons",
+  //   icon: "bi bi-hdd-stack",
+  // },
+  // {
+  //   title: "Cards",
+  //   href: "/ui/cards",
+  //   icon: "bi bi-card-text",
+  // },
+  // {
+  //   title: "Grid",
+  //   href: "/ui/grid",
+  //   icon: "bi bi-columns",
+  // },
   {
     title: "Table",
     href: "/ui/tables",
     icon: "bi bi-layout-split",
   },
-  {
-    title: "Forms",
-    href: "/ui/forms",
-    icon: "bi bi-textarea-resize",
-  },
+  // {
+  //   title: "Forms",
+  //   href: "/ui/forms",
+  //   icon: "bi bi-textarea-resize",
+  // },
   {
     title: "Breadcrumbs",
     href: "/ui/breadcrumbs",
@@ -89,7 +89,7 @@ const Sidebar = ({ showMobilemenu }) => {
               </Link>
             </NavItem>
           ))}
-          <Button
+          {/* <Button
             color="secondary"
             tag="a"
             target="_blank"
@@ -106,7 +106,7 @@ const Sidebar = ({ showMobilemenu }) => {
             href="https://www.wrappixel.com/templates/xtreme-react-redux-admin/?ref=33"
           >
             Upgrade To Pro
-          </Button>
+          </Button> */}
         </Nav>
       </div>
     </div>
