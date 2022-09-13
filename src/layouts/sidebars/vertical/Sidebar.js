@@ -34,21 +34,21 @@ const navigation = [
   //   href: "/ui/grid",
   //   icon: "bi bi-columns",
   // },
-  {
-    title: "Table",
-    href: "/ui/tables",
-    icon: "bi bi-layout-split",
-  },
+  // {
+  //   title: "Table",
+  //   href: "/ui/tables",
+  //   icon: "bi bi-layout-split",
+  // },
   // {
   //   title: "Forms",
   //   href: "/ui/forms",
   //   icon: "bi bi-textarea-resize",
   // },
-  {
-    title: "Breadcrumbs",
-    href: "/ui/breadcrumbs",
-    icon: "bi bi-link",
-  },
+  // {
+  //   title: "Breadcrumbs",
+  //   href: "/ui/breadcrumbs",
+  //   icon: "bi bi-link",
+  // },
   {
     title: "About",
     href: "/about",

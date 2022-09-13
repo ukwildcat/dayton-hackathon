@@ -39,7 +39,7 @@ const SalesChart = (fryerData) => {
 
       stroke: {
         curve: "smooth",
-        width: 1,
+        width: 3,
       },
       xaxis: {
         categories: axisData,

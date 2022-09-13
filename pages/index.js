@@ -60,7 +60,7 @@ export default function Home() {
       </Head>
       <div>
         {/***Top Cards***/}
-        <Row>
+        {/* <Row>
           <Col sm="6" lg="3">
             <TopCards
               bg="bg-light-success text-success"
@@ -97,22 +97,22 @@ export default function Home() {
               icon="bi bi-bag"
             />
           </Col>
-        </Row>
+        </Row> */}
         {/***Sales & Feed***/}
         <Row>
           <Col sm="12" lg="6" xl="7" xxl="8">
             <SalesChart fryerData={data} />
           </Col>
-          <Col sm="12" lg="6" xl="5" xxl="4">
+          {/* <Col sm="12" lg="6" xl="5" xxl="4">
             <Feeds />
-          </Col>
+          </Col> */}
         </Row>
         {/***Table ***/}
-        <Row>
+        {/* <Row>
           <Col lg="12" sm="12">
             <ProjectTables />
           </Col>
-        </Row>
+        </Row> */}
         {/***Blog Cards***/}
         {/* <Row>
           {BlogData.map((blg) => (
