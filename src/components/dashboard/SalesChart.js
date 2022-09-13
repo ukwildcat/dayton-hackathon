@@ -1,23 +1,33 @@
 import { Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const SalesChart = () => {
+const SalesChart = (fryerData) => {
+  const [seriesData, setData] = useState([{ name: 'Fryer 1', data: [200]}])
+  const [axisData, setXData] = useState(['Model 1']);
+  useEffect(() => {
+    console.log(fryerData);
+    console.log(Array.isArray(fryerData.fryerData));
+    const locations = [];
+    const data = [];
+    fryerData.fryerData?.forEach((fryer) => {
+      if (!locations.find((l) => l === fryer.serialnumber))
+        locations.push(fryer.serialnumber);
+
+      data.push({ name: fryer.location, data: [fryer.events]})
+    });
+    setData(data);
+    setXData(locations);
+  }, [fryerData])
+  
   const chartoptions = {
-    series: [
-      {
-        name: "Iphone 13",
-        data: [0, 31, 40, 28, 51, 42, 109, 100],
-      },
-      {
-        name: "Oneplue 9",
-        data: [0, 11, 32, 45, 32, 34, 52, 41],
-      },
-    ],
+    series: seriesData,
     options: {
       chart: {
-        type: "area",
+        type: "bar",
+        height: 350,
       },
       dataLabels: {
         enabled: false,
@@ -32,28 +42,20 @@ const SalesChart = () => {
         width: 1,
       },
       xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "Aug",
-        ],
+        categories: axisData,
+        dataLabels: 'TEST'
       },
     },
   };
   return (
     <Card>
       <CardBody>
-        <CardTitle tag="h5">Sales Summary</CardTitle>
+        <CardTitle tag="h5">Fryer Summary</CardTitle>
         <CardSubtitle className="text-muted" tag="h6">
-          Yearly Sales Report
+          Events by Fryer
         </CardSubtitle>
         <Chart
-          type="area"
+          type="bar"
           width="100%"
           height="390"
           options={chartoptions.options}

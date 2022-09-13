@@ -4,11 +4,9 @@ import SalesChart from "../src/components/dashboard/SalesChart";
 import Feeds from "../src/components/dashboard/Feeds";
 import ProjectTables from "../src/components/dashboard/ProjectTable";
 import TopCards from "../src/components/dashboard/TopCards";
-import Blog from "../src/components/dashboard/Blog";
-import bg1 from "../src/assets/images/bg/bg1.jpg";
-import bg2 from "../src/assets/images/bg/bg2.jpg";
-import bg3 from "../src/assets/images/bg/bg3.jpg";
-import bg4 from "../src/assets/images/bg/bg4.jpg";
+import { useEffect } from "react";
+import useSWR from "swr";
+import { fetcher } from "/lib/fetcher";
 
 // const BlogData = [
 //   {
@@ -46,6 +44,13 @@ import bg4 from "../src/assets/images/bg/bg4.jpg";
 // ];
 
 export default function Home() {
+
+  const { data } = useSWR("/api/fryers?type=all", fetcher);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data])
+
   return (
     <div>
       <Head>
@@ -96,7 +101,7 @@ export default function Home() {
         {/***Sales & Feed***/}
         <Row>
           <Col sm="12" lg="6" xl="7" xxl="8">
-            <SalesChart />
+            <SalesChart fryerData={data} />
           </Col>
           <Col sm="12" lg="6" xl="5" xxl="4">
             <Feeds />
