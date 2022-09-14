@@ -50,19 +50,27 @@ const Header = ({ showMobmenu }) => {
           )}
         </Button>
       </div>
+      
 
       <Collapse navbar isOpen={isOpen}>
         <Nav className="me-auto" navbar>
-          {/* <NavItem>
+        
+        <NavItem>
             <Link href="/">
-              <a className="nav-link">Starter</a>
+              <a className="nav-link">Home</a>
             </Link>
-          </NavItem> */}
-          {/* <NavItem>
-            <Link href="/about">
-              <a className="nav-link">About</a>
+          </NavItem>
+    
+          <NavItem>
+            <Link href="/store">
+              <a className="nav-link">Store 01490</a>
             </Link>
-          </NavItem> */}
+          </NavItem>
+          <NavItem>
+            <Link href= "/store">
+              <a className="nav-link">Store 02173</a>
+            </Link>
+          </NavItem>
           {/* <UncontrolledDropdown inNavbar nav>
             <DropdownToggle caret nav>
               DD Menu
