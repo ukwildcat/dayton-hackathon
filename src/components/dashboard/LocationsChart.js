@@ -12,12 +12,14 @@ const LocationsChart = (fryerLocation) => {
     console.log(Array.isArray(fryerLocation.fryerLocation));
     const locations = [];
     const data = [];
-    fryerLocation.fryerLocation?.forEach((location) => {
-      if (!locations.find((l) => l === location.location))
-        locations.push(location.location);
+    if (Array.isArray(fryerLocation.fryerLocation)) {
+      fryerLocation?.fryerLocation?.forEach((location) => {
+        if (!locations.find((l) => l === location.location))
+          locations.push(location.location);
 
-      data.push({ name: location.location, data: [location.events]})
-    });
+        data.push({ name: location.location, data: [location.events]})
+      });
+    }
     setData(data);
     setXData(locations);
   }, [fryerLocation])

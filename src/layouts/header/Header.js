@@ -62,12 +62,12 @@ const Header = ({ showMobmenu }) => {
           </NavItem>
     
           <NavItem>
-            <Link href="/store">
+            <Link href="/store/01490">
               <a className="nav-link">Store 01490</a>
             </Link>
           </NavItem>
           <NavItem>
-            <Link href= "/store">
+            <Link href= "/store/02173">
               <a className="nav-link">Store 02173</a>
             </Link>
           </NavItem>

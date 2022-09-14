@@ -4,19 +4,20 @@ const url = require("url");
 // open the database
 const db = new sqlite3.Database("./public/hp.db");
 
-const sql = `SELECT location, modelnumber as 'events' FROM 'lastyear' `;
 
 export default async function handle(req, res) {
-  const queryObject = url.parse(req.url, true).query;
+    const queryObject = url.parse(req.url, true).query;
+    const sql = `SELECT location, modelnumber as 'events' FROM 'lastyear' where location = \'${queryObject["store"]}\' LIMIT 0,200`;
+    console.log(sql);
 
-  if (queryObject["type"] === 'all') {
+  if (queryObject["store"].length > 0) {
     db.all(sql, [], (err, rows) => {
-            if (err) {
-                throw err;
-            }
-            res.json(rows);
-        })
-    } else {
-        res.json({})
-    }
+      if (err) {
+        throw err;
+      }
+      res.json(rows);
+    });
+  } else {
+    res.json({});
+  }
 }
