@@ -1,4 +1,5 @@
-import { Button, Nav, NavItem } from "reactstrap";
+/* eslint-disable @next/next/link-passhref */
+import { Button, Nav, NavItem, Alert } from "reactstrap";
 import Logo from "../../logo/Logo";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,9 +11,14 @@ const navigation = [
     icon: "bi bi-speedometer2",
   },
   {
-    title: "Alert",
-    href: "/ui/alerts",
-    icon: "bi bi-bell",
+    title: "Logs",
+    href: "/logs",
+    icon: "bi bi-file-text",
+  },
+  {
+    title: "Analytics",
+    href: "/analytics",
+    icon: "bi bi-graph-up",
   },
   // {
   //   title: "Badges",
@@ -49,11 +55,11 @@ const navigation = [
   //   href: "/ui/breadcrumbs",
   //   icon: "bi bi-link",
   // },
-  {
-    title: "About",
-    href: "/about",
-    icon: "bi bi-people",
-  },
+  // {
+  //   title: "About",
+  //   href: "/about",
+  //   icon: "bi bi-people",
+  // },
 ];
 
 const Sidebar = ({ showMobilemenu }) => {
@@ -71,7 +77,7 @@ const Sidebar = ({ showMobilemenu }) => {
           onClick={showMobilemenu}
         ></Button>
       </div>
-      <div className="pt-4 mt-2">
+      <div className="pt-4 mt-2" style={{ borderBottom: "2px solid #ccc" }}>
         <Nav vertical className="sidebarNav">
           {navigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
@@ -108,6 +114,23 @@ const Sidebar = ({ showMobilemenu }) => {
             Upgrade To Pro
           </Button> */}
         </Nav>
+      </div>
+      <div className="pt-4 mt-2">
+        <h6>Current Alerts</h6>
+        <Link href="/store/02173">
+          <Alert color="danger">
+            <b>Store: 02173 - PEF500</b>
+            <br />
+            Power Failure
+          </Alert>
+        </Link>
+        <Link href="/store/01490">
+          <Alert color="warning">
+            <b>Store: 01490 - PEF500</b>
+            <br />
+            High Temperature Alert
+          </Alert>
+        </Link>
       </div>
     </div>
   );

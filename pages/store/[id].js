@@ -1,7 +1,5 @@
 import Head from "next/head";
 import { Col, Row } from "reactstrap";
-import LocationsChart from "/src/components/dashboard/LocationsChart";
-import Feeds from "/src/components/dashboard/Feeds";
 import ProjectTables from "/src/components/dashboard/ProjectTable";
 import TopCards from "/src/components/dashboard/TopCards";
 import DisplayCard from "/src/components/dashboard/DisplayCard";
@@ -9,7 +7,9 @@ import { useEffect } from "react";
 import useSWR from "swr";
 import { fetcher } from "/lib/fetcher";
 import { useRouter } from "next/router";
-
+import ErrorCycleCount from "../../src/components/dashboard/ErrorCycleCount";
+import ErrorOilChart from "../../src/components/dashboard/ErrorsOilChart";
+import ProductBreakdown from "../../src/components/dashboard/ProductBreakdown";
 // const BlogData = [
 //   {
 //     image: bg1,
@@ -63,12 +63,12 @@ export default function Home() {
       <div>
         {/***Top Cards***/}
         <Row>
-          <Col sm="6" lg="5">
+          <Col sm="6" lg="6">
             <TopCards
               bg="bg-light-success text-success"
               title="Store"
               subtitle="Store location"
-              location="01490"
+              location={router.query.id}
               address="1482 Miamisburg Centerville Rd, 
               Dayton, OH 45459 "
               phone="(937) 439-2552"
@@ -76,8 +76,8 @@ export default function Home() {
               icon="bi bi-building"
             />
           </Col>
-          
-          <Col sm="6" lg="5">
+
+          <Col sm="6" lg="6">
             <DisplayCard
               bg="bg-light-warning text-warning"
               title="Current Monitoring Info"
@@ -96,14 +96,19 @@ export default function Home() {
         </Row>
         {/***Sales & Feed***/}
         <Row>
-          <Col sm="12" lg="6" xl="7" xxl="8">
-            <LocationsChart fryerLocation={data} />
+          <Col sm="12" lg="4">
+            <ErrorCycleCount fryerLocation={data} />
+          </Col>
+          <Col sm="12" lg="4">
+            <ErrorOilChart fryerLocation={data} />
+          </Col>
+          <Col sm="12" lg="4">
+            { router.isReady && <ProductBreakdown fryerLocation={router.query.id} /> }
           </Col>
           {/* <Col sm="12" lg="6" xl="5" xxl="4">
             <Feeds />
           </Col> */}
         </Row>
-        
       </div>
     </div>
   );
