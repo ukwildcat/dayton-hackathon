@@ -5,24 +5,6 @@ import { useEffect, useState } from "react";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const ErrorCycleCount = (fryerLocation) => {
-  const [seriesData, setData] = useState([{ name: 'Location 1', data: [200]}])
-  const [axisData, setXData] = useState(['Model 1']);
-  useEffect(() => {
-    console.log(fryerLocation);
-    console.log(Array.isArray(fryerLocation.fryerLocation));
-    const locations = [];
-    const data = [];
-    if (Array.isArray(fryerLocation.fryerLocation)) {
-      fryerLocation?.fryerLocation?.forEach((location) => {
-        if (!locations.find((l) => l === location.location))
-          locations.push(location.location);
-
-        data.push({ name: location.location, data: [location.events]})
-      });
-    }
-    setData(data);
-    setXData(locations);
-  }, [fryerLocation])
   
   const chartoptions = {
     chart: {
