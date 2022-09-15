@@ -1,46 +1,73 @@
 import React from "react";
+import { Card, CardBody, CardTitle} from "reactstrap";
 
 
-const Users = [
+const Data = [
   {
-    id: 1,
-    selected: false,
-    name: "Leanne Graham",
-    email: "Sincere@april.biz",
-    phone: "1-770-736-8031 x56442",
-    website: "hildegard.org",
+    store: "01490",
+    model : "PFE500",
+    serial: "AA2006123",
+    status: "complete",
+    cycles: "13669",
+    errors: "48",
+    filtration: "10",
+    oil: "660",
+    service: "1/7/20"
   },
   {
-    id: 2,
-    selected: false,
-    name: "Ervin Howell",
-    email: "Shanna@melissa.tv",
-    phone: "010-692-6593 x09125",
-    website: "anastasia.net",
+    store: "01490",
+    model : "PFE500",
+    serial: "AA2008047",
+    status: "pending",
+    cycles: "15581",
+    errors: "0",
+    filtration: "9",
+    oil: "166",
+    service: "3/10/22"
   },
   {
-    id: 3,
-    selected: false,
-    name: "Clementine Bauch",
-    email: "Nathan@yesenia.net",
-    phone: "1-463-123-4447",
-    website: "ramiro.info",
+    store: "01490",
+    model : "PFE500",
+    serial: "AA2008027",
+    status: "failed",
+    cycles: "14700",
+    errors: "61",
+    filtration: "5",
+    oil: "56",
+    service: "N/A"
   },
   {
-    id: 4,
-    selected: true,
-    name: "Patricia Lebsack",
-    email: "Julianne.OConner@kory.org",
-    phone: "493-170-9623 x156",
-    website: "kale.biz",
+    store: "01490",
+    model : "PFE500",
+    serial: "AA2008031",
+    status: "complete",
+    cycles: "16176",
+    errors: "0",
+    filtration: "10",
+    oil: "3436",
+    service: "12/1/21"
   },
   {
-    id: 5,
-    selected: false,
-    name: "Chelsey Dietrich",
-    email: "Lucio_Hettinger@annie.ca",
-    phone: "(254)954-1289",
-    website: "demarco.info",
+    store: "02173",
+    model : "PFE500",
+    serial: "AA1806130",
+    status: "complete",
+    cycles: "61267",
+    errors: "361",
+    filtration: "6",
+    oil: "1636",
+    service: "5/25/19"
+  },
+  {
+    store: "02173",
+    model : "CFE415",
+    serial: "LF1710020",
+    status: "pending",
+    cycles: "71417",
+    errors: "0",
+    filtration: "9",
+    oil: "6553",
+    service: "5/25/19"
   },
 ];
 
@@ -48,7 +75,7 @@ class SelectTableComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      List: Users,
+      List: Data,
       MasterChecked: false,
       SelectedList: [],
     };
@@ -99,6 +126,10 @@ class SelectTableComponent extends React.Component {
 
   render() {
     return (
+     
+      <Card>
+      <CardBody>
+        <CardTitle tag="h5">All Store Data </CardTitle>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -113,25 +144,41 @@ class SelectTableComponent extends React.Component {
                       id="mastercheck"
                       onChange={(e) => this.onMasterCheck(e)}
                     />
-                  </th>
+                      </th>
+                  <th scope="col">Store Number</th>
                   <th scope="col">Model Number</th>
-                  <th scope="col">Cycles per Error</th>
+                  <th scope="col">Serial Number</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Total Cycles</th>
+                  <th scope="col"># of Errors</th>
+                  <th scope="col">Daily Filter Count</th>
+                  <th scope="col">Total Oil Wear</th>
+                  <th scope="col">Last Service Date</th>
+                  
+                  
                 </tr>
               </thead>
               <tbody>
-                {this.state.List.map((user) => (
-                  <tr key={user.id} className={user.selected ? "selected" : ""}>
+                {this.state.List.map((tdata, index) => (
+                  <tr key={index} className={tdata.selected ? "selected" : ""}>
                     <th scope="row">
                       <input
                         type="checkbox"
-                        checked={user.selected}
+                        checked={tdata.selected}
                         className="form-check-input"
                         id="rowcheck{user.id}"
-                        onChange={(e) => this.onItemCheck(e, user)}
+                        onChange={(e) => this.onItemCheck(e, tdata)}
                       />
                     </th>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
+                    <td>{tdata.store}</td>
+                    <td>{tdata.model}</td>
+                    <td>{tdata.serial}</td>
+                    <td>{tdata.status}</td>
+                    <td>{tdata.cycles}</td>
+                    <td>{tdata.errors}</td>
+                    <td>{tdata.filtration}</td>
+                    <td>{tdata.oil}</td>
+                    <td>{tdata.service}</td>
                   </tr>
                 ))}
               </tbody>
@@ -141,7 +188,15 @@ class SelectTableComponent extends React.Component {
               onClick={() => this.getSelectedRows()}
             >
               Get Selected Items {this.state.SelectedList.length} 
-            </button>
+                </button>
+               
+                  <button style={{marginLeft: 5}}
+              className="btn btn-primary"
+              
+            >
+             Download Report 
+                  </button>
+                  
             {/* <div className="row">
               <b>All Row Items:</b>
               <code>{JSON.stringify(this.state.List)}</code>
@@ -151,8 +206,11 @@ class SelectTableComponent extends React.Component {
               <code>{JSON.stringify(this.state.SelectedList)}</code>
             </div> */}
           </div>
-        </div>
-      </div>
+            </div>
+            
+          </div>
+          </CardBody>
+    </Card>
     );
   }
 }

@@ -14,8 +14,9 @@ import {
   Dropdown,
   Button,
 } from "reactstrap";
-import LogoWhite from "../../assets/images/logos/xtremelogowhite.svg";
-import user1 from "../../assets/images/users/user1.jpg";
+import LogoWhite from "../../assets/images/logos/deep-fryer.svg";
+import FrynetLogo from "../../assets/images/logos/deep-fryer.svg";
+import user1 from "../../assets/images/logos/chicken.svg";
 
 const Header = ({ showMobmenu }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -25,12 +26,14 @@ const Header = ({ showMobmenu }) => {
   const Handletoggle = () => {
     setIsOpen(!isOpen);
   };
+  const subtitle = "FRYNET";
 
   return (
     <Navbar color="primary" dark expand="md">
       <div className="d-flex align-items-center">
         <NavbarBrand href="/" className="d-lg-none">
           <Image src={LogoWhite} alt="logo" />
+          FRYNET
         </NavbarBrand>
         <Button color="primary" className="d-lg-none" onClick={showMobmenu}>
           <i className="bi bi-list"></i>
@@ -71,7 +74,16 @@ const Header = ({ showMobmenu }) => {
               <a className="nav-link">Store 02173</a>
             </Link>
           </NavItem>
-          {/* <UncontrolledDropdown inNavbar nav>
+          {/* <div >
+          <i className="text" style={{ color: "black", alignSelf:"center" }} >
+            {subtitle}
+            </i>
+            <br />
+          <Image src={FrynetLogo} alt="frynet-logo" height={25}  > 
+          </Image>
+            </div> */}
+      
+              {/* <UncontrolledDropdown inNavbar nav>
             <DropdownToggle caret nav>
               DD Menu
             </DropdownToggle>

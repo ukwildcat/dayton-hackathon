@@ -4,6 +4,7 @@ import LocationsChart from "/src/components/dashboard/LocationsChart";
 import Feeds from "/src/components/dashboard/Feeds";
 import ProjectTables from "/src/components/dashboard/ProjectTable";
 import TopCards from "/src/components/dashboard/TopCards";
+import DisplayCard from "/src/components/dashboard/DisplayCard";
 import { useEffect } from "react";
 import useSWR from "swr";
 import { fetcher } from "/lib/fetcher";
@@ -60,6 +61,39 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
+        {/***Top Cards***/}
+        <Row>
+          <Col sm="6" lg="5">
+            <TopCards
+              bg="bg-light-success text-success"
+              title="Store"
+              subtitle="Store location"
+              location="01490"
+              address="1482 Miamisburg Centerville Rd, 
+              Dayton, OH 45459 "
+              phone="(937) 439-2552"
+              operator="Marla Davis - Restaurant Operator"
+              icon="bi bi-building"
+            />
+          </Col>
+          
+          <Col sm="6" lg="5">
+            <DisplayCard
+              bg="bg-light-warning text-warning"
+              title="Current Monitoring Info"
+              subtitle="Current Monitoring Information"
+              errors="Errors: 109"
+              cycles="Total Cook Cycles: 60126"
+              totalunits="Total Store Units: 4"
+              icon="bi bi-display"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col lg="12" sm="12">
+            <ProjectTables />
+          </Col>
+        </Row>
         {/***Sales & Feed***/}
         <Row>
           <Col sm="12" lg="6" xl="7" xxl="8">
@@ -69,11 +103,7 @@ export default function Home() {
             <Feeds />
           </Col> */}
         </Row>
-        <Row>
-          <Col lg="12" sm="12">
-            <ProjectTables />
-          </Col>
-        </Row>
+        
       </div>
     </div>
   );

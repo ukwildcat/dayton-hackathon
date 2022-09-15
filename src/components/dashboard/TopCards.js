@@ -1,7 +1,7 @@
 import { Card, CardBody } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const TopCards = ({ bg, icon, earning, subtitle }) => {
+const TopCards = ({ bg, icon, location, subtitle, address, phone, operator, errors }) => {
   return (
     <Card>
       <CardBody>
@@ -10,8 +10,16 @@ const TopCards = ({ bg, icon, earning, subtitle }) => {
             <i className={icon} />
           </div>
           <div className="ms-3">
-            <h3 className="mb-0 font-weight-bold">{earning}</h3>
-            <small className="text-muted">{subtitle}</small>
+          <small className="text-muted">{subtitle}</small>
+            <br />
+            <h5 className="mb-0 font-weight-bold">{location}</h5>
+           
+            <medium className="text-muted">{address}</medium>
+            <br />
+            <medium className="text-muted">{phone}</medium>
+            <br />
+            <medium className="text-muted">{operator}</medium>
+           
           </div>
         </div>
       </CardBody>
@@ -21,9 +29,13 @@ const TopCards = ({ bg, icon, earning, subtitle }) => {
 
 TopCards.propTypes = {
   bg: PropTypes.string,
-  icon: PropTypes.string,
-  earning: PropTypes.string,
+  icon: PropTypes.any,
+  location: PropTypes.any,
   subtitle: PropTypes.string,
+  address: PropTypes.string,
+  phone: PropTypes.string,
+  operator: PropTypes.string,
+  
 };
 
 export default TopCards;
