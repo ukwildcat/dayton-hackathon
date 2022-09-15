@@ -5,11 +5,11 @@ import Feeds from "../src/components/dashboard/Feeds";
 import ProjectTables from "../src/components/dashboard/ProjectTable";
 import TopCards from "../src/components/dashboard/TopCards";
 import SelectTableComponent from "/pages/ui/select"
-import { FrynetLogo } from "../src/assets/images/logos/deep-fryer.png"
 import { useEffect } from "react";
 import Image from "next/image";
 import useSWR from "swr";
 import { fetcher } from "/lib/fetcher";
+import { AlignCenter } from "react-feather";
 
 // const BlogData = [
 //   {
@@ -62,7 +62,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-     
+      
+      
         {/***Top Cards***/}
         {/* <Row>
           <Col sm="6" lg="3">
@@ -70,10 +71,12 @@ export default function Home() {
               <TopCards
                title="FRYNET"
               
-               location="FRYNET"
-               icon={"bi bi-coin"}
+               
+               icon={FrynetLogo}
               />
-          </Col> */}
+          </Col>
+          </Row> */}
+        {/* <Image src={FrynetLogo} alt="icons" className="img-frynet" /> */}
           {/* <Col sm="6" lg="3">
             <TopCards
               bg="bg-light-danger text-danger"

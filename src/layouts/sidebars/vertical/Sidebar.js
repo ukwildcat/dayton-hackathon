@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/link-passhref */
 import { Button, Nav, NavItem, Alert } from "reactstrap";
 import Logo from "../../logo/Logo";
+import FryerLogo from "../../logo/FryeryLogo"
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -70,6 +71,8 @@ const Sidebar = ({ showMobilemenu }) => {
     <div className="p-3">
       <div className="d-flex align-items-center">
         <Logo />
+        
+        
         <Button
           close
           size="sm"
@@ -77,6 +80,7 @@ const Sidebar = ({ showMobilemenu }) => {
           onClick={showMobilemenu}
         ></Button>
       </div>
+      <div style={{position:"relative"}}><FryerLogo /></div>
       <div className="pt-4 mt-2" style={{ borderBottom: "2px solid #ccc" }}>
         <Nav vertical className="sidebarNav">
           {navigation.map((navi, index) => (
