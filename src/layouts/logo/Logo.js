@@ -6,7 +6,8 @@ const Logo = () => {
   return (
     <Link href="/">
       <a>
-        <Image src={LogoDark} alt="logo" />
+        <Image style={{display: "flex", maxWidth:"40%", marginLeft: "auto",
+        marginRight: "auto" }}src={LogoDark} alt="logo" />
       </a>
     </Link>
   );
